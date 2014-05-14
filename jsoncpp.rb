@@ -14,8 +14,8 @@ class Jsoncpp < Formula
     # run the build
     system "scons platform=linux-gcc"
     #install the libs
-    lib.install "libs/linux-gcc-#{gccversion}/libjson_linux-gcc-#{gccversion}_libmt.a" => "libjson.a", 
-    "libs/linux-gcc-#{gccversion}/libjson_linux-gcc-#{gccversion}_libmt.dylib" => "libjson.dylib"
+    lib.install "libs/linux-gcc-#{gccversion}/libjson_linux-gcc-#{gccversion}_libmt.a", 
+    "libs/linux-gcc-#{gccversion}/libjson_linux-gcc-#{gccversion}_libmt.dylib"
     # install the headers
     include.install "include/json" => "json"
   end
