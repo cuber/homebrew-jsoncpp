@@ -13,11 +13,13 @@ class Jsoncpp < Formula
     gccversion = gccversion.delete("\n");
     # run the build
     system "scons platform=linux-gcc"
-    #install the libs
-    lib.install "libs/linux-gcc-#{gccversion}/libjson_linux-gcc-#{gccversion}_libmt.a" => "libjson.a", 
-    "libs/linux-gcc-#{gccversion}/libjson_linux-gcc-#{gccversion}_libmt.dylib" => "libjson.dylib"
+    # install the libs
+    lib.install "libs/linux-gcc-#{gccversion}/libjson_linux-gcc-#{gccversion}_libmt.a",
+                "libs/linux-gcc-#{gccversion}/libjson_linux-gcc-#{gccversion}_libmt.dylib"
+    lib.install_symlink lib/"libjson_linux-gcc-4.2.1_libmt.a"     => "libjsoncpp.a",
+                        lib/"libjson_linux-gcc-4.2.1_libmt.dylib" => "libjsoncpp.dylib"
     # install the headers
-    include.install "include/json" => "json"
+    include.install "include/json"
   end
 
   test do
